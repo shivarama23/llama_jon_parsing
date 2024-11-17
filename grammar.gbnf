@@ -1,0 +1,11 @@
+root ::= Root
+Designation ::= "{"   ws   "\"position\":"   ws   string   ","   ws   "\"location\":"   ws   string   ","   ws   "\"startYear\":"   ws   number   ","   ws   "\"endYear\":"   ws   number   "}"
+Designationlist ::= "[]" | "["   ws   Designation   (","   ws   Designation)*   "]"
+Root ::= "{"   ws   "\"DESIGNATIONS\":"   ws   Designationlist   ","   ws   "\"FIRST_EVER\":"   ws   stringlist   ","   ws   "\"CAREER_DURATION\":"   ws   string   "}"
+Rootlist ::= "[]" | "["   ws   Root   (","   ws   Root)*   "]"
+string ::= "\""   ([^"]*)   "\""
+boolean ::= "true" | "false"
+ws ::= [ \t\n]*
+number ::= [0-9]+   "."?   [0-9]*
+stringlist ::= "["   ws   "]" | "["   ws   string   (","   ws   string)*   ws   "]"
+numberlist ::= "["   ws   "]" | "["   ws   string   (","   ws   number)*   ws   "]"
